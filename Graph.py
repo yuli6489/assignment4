@@ -41,7 +41,7 @@ class Graph():
         """
 
         # TODO Fill this in
-
+        # TO FILL THIS IN
     def remove_vertex(self, vertex: Vertex) -> None:
         """
         Removes the given vertex from the graph.
