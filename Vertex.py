@@ -43,6 +43,8 @@ class Vertex():
         """
 
         # TODO Fill this in
+        self.edges.append(vertex)
+
 
     def remove_edge(self, vertex: 'Vertex') -> None:
         """
@@ -52,6 +54,21 @@ class Vertex():
         """
 
         # TODO Fill this in
+        i=0
+        new_ls = []
+        while i < len(self.edges):
+            if self.edges[i] != vertex:
+                new_ls.append(self.edges[i])
+            elif self.edges[i] == vertex:
+                j = i+1
+                while j < len(self.edges):
+                    new_ls.append(self.edges[j])
+                    j = j+1
+                i = j
+            i = i+1
+
+        self.edges = new_ls
+
 
     def get_edges(self) -> 'list[Vertex]':
         """
@@ -67,6 +84,7 @@ class Vertex():
         """
 
         # TODO Fill this in
+        self.is_trusted = is_trusted
 
     def get_is_trusted(self) -> bool:
         """
@@ -75,3 +93,22 @@ class Vertex():
         """
 
         return self.is_trusted
+
+A = Vertex(True)
+B = Vertex(False)
+C = Vertex(False)
+D = Vertex(True)
+
+A.add_edge(B)
+A.add_edge(C)
+B.add_edge(D)
+C.add_edge(D)
+
+A.add_edge(D)
+print(A.get_edges())
+A.remove_edge(C)
+print(A.get_edges())
+
+
+B.update_status(True)
+print(B.get_is_trusted())
