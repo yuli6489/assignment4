@@ -93,7 +93,7 @@ class Vertex():
         """
 
         return self.is_trusted
-
+"""
 A = Vertex(True)
 B = Vertex(False)
 C = Vertex(False)
@@ -112,3 +112,4 @@ print(A.get_edges())
 
 B.update_status(True)
 print(B.get_is_trusted())
+"""
